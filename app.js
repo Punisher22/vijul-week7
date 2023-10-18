@@ -24,7 +24,7 @@ app.engine('hbs', handlebars.engine({
     defaultLayout: 'main',
 }));
 app.set('view engine', 'hbs');
-
+app.set('views', path.join(__dirname,'views'));
 
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
