@@ -1,4 +1,3 @@
-//ITE5315--Professor: Shahdad
 const express = require('express')
 const bodyParser = require('body-parser')
 const { check, validationResult } = require('express-validator')
@@ -8,23 +7,22 @@ const port = 5000
 
 // Set Templating Enginge
 const handlebars = require('express-handlebars');
-// app.engine('hbs', handlebars.engine({
-//     extname: '.hbs',
-//     helpers: {
-//         calculation: function(num){
-//             return num + 10;
-//          },
-//         strong: function(options){
-//             return '<strong>' + options.fn(this) + '</strong>';
-//         }
-//     }
-//  }));
+app.engine('hbs', handlebars.engine({
+    extname: '.hbs',
+    helpers: {
+        calculation: function(num){
+            return num + 10;
+         },
+        strong: function(options){
+            return '<strong>' + options.fn(this) + '</strong>';
+        }
+    }
+ }));
 app.engine('hbs', handlebars.engine({
     extname: '.hbs',
     defaultLayout: 'main',
 }));
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname,'views'));
 
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
